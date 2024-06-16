@@ -91,31 +91,30 @@ legend {
 /* ****************** */
 
 .container{
-    margin: 33% auto;
+    margin: 15% auto;
     width: 400px;
     height: 400px;
 }
 
 .calculator_box > div, input {
     width: 100%;
-    height: 100%;
+    height: 50px;
     border: solid 1px black;
     margin: auto;
     text-align: center;
     line-height: 50px;
-    /* padding: 15px; */
 }
 
-.calculator_box{
-    display: grid;
-    gap: 3px;
-    grid-template-columns: repeat(4, 1fr);
-    /* place-items: center; */
-
-}
 .input{
     grid-column-start: 1;
     grid-column-end: 4;
     text-align: end;
     padding-right: 5px;
 }
+
+.calculator_box{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
