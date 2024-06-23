@@ -96,7 +96,7 @@ legend {
     height: 400px;
 }
 
-.calculator_box > div, input {
+.calculator_box > button, input {
     width: 100%;
     height: 50px;
     border: solid 1px black;
@@ -105,9 +105,12 @@ legend {
     line-height: 50px;
 }
 
-.input{
+.input_box{
     grid-column-start: 1;
     grid-column-end: 4;
+}
+
+.input {
     text-align: end;
     padding-right: 5px;
 }
