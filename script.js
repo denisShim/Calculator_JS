@@ -3,7 +3,6 @@
 // 1. functions of the basic math operators
 
 function add(a, b){
-    // return console.log("OTVET")
     return a + b;
 }
 
@@ -52,121 +51,67 @@ function operate(operator, firstNumber, secondNumber){
 
 const input = document.querySelector(".input");
 const resetBtn = document.querySelector(".reset_btn");
-const btnArray = (Array.from(document.querySelectorAll("button"))).map(item => item.innerHTML);
 const calculator = document.querySelector(".calculator_box");
-// console.log(btnArray)
-
-// for(const btn of btnArray){
-//     console.log(btn.textContent);
-// }
 
 function clearAll(){
-    input.value = "";
+    input.value = "0";
     firstNumber = "";
     secondNumber = "";
     operator = "";
+    finish = false;
 }
 
 resetBtn.addEventListener("click", clearAll);
 
-
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['-', '+', '*', '/'];
 
-// calculator.onclick = (event) => {
-//     if(event.target.tagName != "BUTTON") return;
-//     if(event.target.classList.contains("reset_btn")) return;
-//     input.value = "";
-
-//     const key = event.target.textContent;
-//     if(digit.includes(key)) {
-//         firstNumber += key;
-//         console.log(firstNumber)
-//     }
-
-// }
-
-// код по ютубу
 function setNumber(event){
     let target = event.target;
     const key = event.target.textContent;
 
-    if(target.tagName != "BUTTON") return;
+    if(target.tagName !== "BUTTON") return;
     if(target.classList.contains("reset_btn")) return;
-    input.value = "";
 
     if(digit.includes(key)) {
-        if(firstNumber == '' || operator == ''){
+        if(secondNumber === '' && operator === ''){
             firstNumber += key;
             input.value = firstNumber;
             console.log("1Num = " + firstNumber);
-        } else if(firstNumber != '' && operator != '') {
+        }
+        else if(firstNumber !== '' && secondNumber !== '' && finish){
+            secondNumber = key;
+            console.log("2Num = " + secondNumber);
+            finish = false;
+            input.value = secondNumber;
+        } 
+        else {
             secondNumber += key;
             input.value = secondNumber;
             console.log("2Num = " + secondNumber);
-
         }
-    }
 
+        console.log(firstNumber, secondNumber, operator);
+        return;
+    }
     if(action.includes(key)) {
-        if(firstNumber != '' && secondNumber == '' && operator == '') {
-            operator = key;
-            input.value = operator;
-            console.log(operator);
-        }
+        operator = key;
+        input.value = firstNumber + operator;
+        console.log(firstNumber, secondNumber, operator);
+        return
+      }
+
+    if(key === '=') {
+        if(secondNumber === '') secondNumber = firstNumber;
+
+    input.value = operate(operator, firstNumber, secondNumber);
+    console.log("Result = " + input.value);
+    finish = true;
+    operator = '';
+    firstNumber = input.value;
+    console.log("firstNumber = " + firstNumber);
+
     }
-
-
-    if(key == '=') {
-        if(firstNumber !== '' && secondNumber !== '' && operator !== ''){
-            input.value = operate(operator, firstNumber, secondNumber);
-        }
-    }
-
 }
 
-
-/*
-function setNumber(event){
-    let target = event.target;
-    let key = event.target.textContent;
-
-    if(target.tagName != "BUTTON") return;
-
-    if(target.textContent == "C"){
-        input.value = "";
-        firstNumber = "";
-        secondNumber = "";
-    }
-
-    if(btnArray.includes(key)) {
-        if(secondNumber == "" && operator == ""){
-            firstNumber += key;
-            input.value += firstNumber;
-            console.log(firstNumber)
-        }
-
-    }
-
-    if(target.textContent == "+" && input.value != ""){
-        firstNumber = input.value;
-        operator = target.textContent;
-        input.value = "+";
-        console.log(firstNumber,operator);
-    }
-    
-    if(target.textContent == "=" ||
-    target.textContent == "+" || 
-    target.textContent == "*" || 
-    target.textContent ==  "/" ||
-    target.textContent ==  "-" ||
-    target.textContent == "C") return;
-
-    
-
-    return input.value += target.textContent;
-}
-*/
-
-// setNumber(btnArray)
 calculator.addEventListener("click", setNumber);

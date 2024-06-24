@@ -93,7 +93,8 @@ legend {
 .container{
     margin: 15% auto;
     width: 400px;
-    height: 400px;
+    height: auto;
+    font-size: 24px;
 }
 
 .calculator_box > button, input {
@@ -113,11 +114,23 @@ legend {
 .input {
     text-align: end;
     padding-right: 5px;
+    border-radius: 5px;
+    background-color: rgb(119, 118, 117);
+    color: white;
 }
 
 .calculator_box{
     display: grid;
     gap: 3px;
     grid-template-columns: repeat(4, 1fr);
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 5px;
+
 }
 
+button {
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(236, 145, 47);
+}
