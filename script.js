@@ -2,6 +2,7 @@
 
 // 1. functions of the basic math operators
 
+<<<<<<< HEAD
 function add(a, b){
     return a + b;
 }
@@ -16,15 +17,37 @@ function multiply(a, b){
 
 function divide(a, b){
     return a / b;
+=======
+function add(firstNumber, secondNumber){
+    return firstNumber + secondNumber;
+}
+
+function subtract(firstNumber, secondNumber){
+    return firstNumber - secondNumber;
+}
+
+function multiply(firstNumber, secondNumber){
+    return firstNumber * secondNumber;
+}
+
+function divide(firstNumber, secondNumber){
+    return firstNumber / secondNumber;
+>>>>>>> 475a4da (Wrote functions for addition, subtraction, multiplication and division. Created an operation function that calls one of the functions for a mathematical action.)
 }
 
 // ****************
 // 2. variables for each of the parts of a calculator operation
 
+<<<<<<< HEAD
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 let finish = false;
+=======
+let firstNumber;
+let secondNumber;
+let operator;
+>>>>>>> 475a4da (Wrote functions for addition, subtraction, multiplication and division. Created an operation function that calls one of the functions for a mathematical action.)
 
 // *****************
 
@@ -33,6 +56,7 @@ let finish = false;
 function operate(operator, firstNumber, secondNumber){
     switch(operator) {
         case "+":
+<<<<<<< HEAD
             return add(Number(firstNumber), Number(secondNumber));
         case "-":
             return subtract(Number(firstNumber), Number(secondNumber));
@@ -40,6 +64,15 @@ function operate(operator, firstNumber, secondNumber){
             return multiply(Number(firstNumber), Number(secondNumber));
         case "/":
             return divide(Number(firstNumber), Number(secondNumber));
+=======
+            return add(firstNumber, secondNumber);
+        case "-":
+            return subtract(firstNumber, secondNumber);
+        case "*":
+            return multiply(firstNumber, secondNumber);
+        case "/":
+            return divide(firstNumber, secondNumber);
+>>>>>>> 475a4da (Wrote functions for addition, subtraction, multiplication and division. Created an operation function that calls one of the functions for a mathematical action.)
         default:
             alert("Unknown operator");
     }
@@ -47,6 +80,7 @@ function operate(operator, firstNumber, secondNumber){
 
 // ****************
 
+<<<<<<< HEAD
 // 4.functions that populate the display when you click the number buttons
 
 const input = document.querySelector(".input");
@@ -115,3 +149,6 @@ function setNumber(event){
 }
 
 calculator.addEventListener("click", setNumber);
+=======
+
+>>>>>>> 475a4da (Wrote functions for addition, subtraction, multiplication and division. Created an operation function that calls one of the functions for a mathematical action.)
